@@ -1,7 +1,13 @@
 const express = require("express");
 const app = express();
 
-app.use((req, res) => {
+app.use("/resposta", (req, res, next) => {
+  console.log("Antes...");
+  next();
+});
+
+app.get("/resposta", (req, res, next) => {
+  console.log("Antes...");
   //metodo middleware
   res.json({
     data: [
@@ -15,6 +21,8 @@ app.use((req, res) => {
     status: 200,
   });
 
+  next();
+
   //objeto
   // res.json({
   //   name: "iPad 64Gb",
@@ -22,6 +30,10 @@ app.use((req, res) => {
   //   discount: 0.12,
   // });
   // res.send("Estou bem");
+});
+
+app.use("/resposta", (req, res) => {
+  console.log("Depois...");
 });
 
 app.listen(4000, () => {
