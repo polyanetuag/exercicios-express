@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "prod" : "pm2 start index.js --name appx-backend"
   },
   "keywords": [],
   "author": "",
