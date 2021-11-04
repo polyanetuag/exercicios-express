@@ -2,7 +2,26 @@ const express = require("express");
 const app = express();
 
 app.use((req, res) => {
-  res.send("Estou bem");
+  //metodo middleware
+  res.json({
+    data: [
+      { id: 3, name: "Maria", position: 1 },
+      { id: 8, name: "Jonas", position: 2 },
+      { id: 11, name: "Carla", position: 3 },
+    ],
+    count: 10,
+    skip: 0,
+    limit: 3,
+    status: 200,
+  });
+
+  //objeto
+  // res.json({
+  //   name: "iPad 64Gb",
+  //   price: 2957.9,
+  //   discount: 0.12,
+  // });
+  // res.send("Estou bem");
 });
 
 app.listen(4000, () => {
