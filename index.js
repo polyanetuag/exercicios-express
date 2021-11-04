@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
 
+const saudacao = require("./saudacaoMid");
+
+//retorno da função
+app.use(saudacao("Júlia"));
+
 app.use("/resposta", (req, res, next) => {
   console.log("Antes...");
   next();
