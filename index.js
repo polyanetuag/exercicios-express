@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 
 const saudacao = require("./saudacaoMid");
 const usuarioApi = require("./api/usuario");
+require("./api/produto")(app, "com param!"); //importando as funções salvar e obter do produto
 
 app.get("/usuario", usuarioApi.obter);
 app.post("/usuario", usuarioApi.salvar);
