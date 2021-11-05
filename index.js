@@ -3,6 +3,10 @@ const app = express();
 const bodyParser = require("body-parser");
 
 const saudacao = require("./saudacaoMid");
+const usuarioApi = require("./api/usuario");
+
+app.get("/usuario", usuarioApi.obter);
+app.post("/usuario", usuarioApi.salvar);
 
 app.use(bodyParser.text()); //retorna uma função textual
 app.use(bodyParser.json()); //retorna uma função em json
