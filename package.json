@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
-    "prod" : "pm2 start index.js --name appx-backend"
+    "prod": "pm2 start index.js --name appx-backend"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "pm2": "^5.1.2"
   },
