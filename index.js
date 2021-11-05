@@ -1,8 +1,12 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
 const saudacao = require("./saudacaoMid");
 
+app.use(bodyParser.text()); //retorna uma função textual
+app.use(bodyParser.json()); //retorna uma função em json
+app.use(bodyParser.urlencoded({ extended: true })); //retorna uma função em padrão urlencoded
 //retorno da função
 app.use(saudacao("Júlia"));
 
@@ -20,13 +24,14 @@ app.get("/clientes/relatorio", (req, res) => {
 
 //recebendo parametros no body
 app.post("/body", (req, res) => {
-  let corpo = "";
-  req.on("data", function (parte) {
-    corpo += parte;
-  });
-  req.on("end", function () {
-    res.send(corpo);
-  });
+  // let corpo = "";
+  // req.on("data", function (parte) {
+  //   corpo += parte;
+  // });
+  // req.on("end", function () {
+  //   res.send(corpo);
+  // });
+  res.send(req.body);
 });
 
 app.get("/clientes/:id", (req, res) => {
